@@ -1,3 +1,7 @@
+# Amazon Clone from scratch using React.js and Firebase
+
+# Additional info will be included as I progress through making this app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
