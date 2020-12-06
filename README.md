@@ -1,6 +1,6 @@
-# Amazon Clone from scratch using React.js and Firebase
+# Amazon Clone from scratch using React and Firebase
 
-# Additional info will be included as I progress through making this app
+Additional info will be included as I progress through making this app
 
 # Getting Started with Create React App
 
