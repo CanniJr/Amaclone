@@ -1,14 +1,18 @@
 // 'rfce' is the shortcut to print all the function code.
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
     return (
         <div className='header'>
+            <Link to='/'>
             <img
                 className='header__logo'
                 src='http://pngimg.com/uploads/amazon/amazon_PNG25.png'
                 alt='Amaclone' />
+            
+            </Link>
 
             <div className='header__search'>
                 <input
@@ -36,13 +40,15 @@ function Header() {
                     <span className='header__optionLineTwo'>Prime</span>
                 </div>
 
-                <div className='header__optionBag'>
-                    <i className="fas fa-shopping-bag"></i>
-                    <span className='header__optionLineTwo header__bagCount'>
-                        0
-                    </span>
-                    
-                </div>
+                <Link to='/checkout' >
+                    <div className='header__optionBag'>
+                        <i className="fas fa-shopping-bag"></i>
+                        <span className='header__optionLineTwo header__bagCount'>
+                            0
+                        </span>
+                        
+                    </div>
+                </Link>
 
             </div>
         </div>
