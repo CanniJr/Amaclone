@@ -2,8 +2,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
+import { useStateValue } from './StateProvider';
 
 function Header() {
+    const [state, dispatch] = useStateValue();
+
     return (
         <div className='header'>
             <Link to='/'>
@@ -44,7 +47,7 @@ function Header() {
                     <div className='header__optionBag'>
                         <i className="fas fa-shopping-bag"></i>
                         <span className='header__optionLineTwo header__bagCount'>
-                            0
+                            {state.bag?.length}
                         </span>
                         
                     </div>

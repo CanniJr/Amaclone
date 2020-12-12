@@ -1,8 +1,15 @@
 import React from 'react';
 import './Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
+import { useStateValue } from './StateProvider';
+import { getBagTotal } from './Reducer';
 
 function Subtotal() {
+
+    const [state, dispatch] = useStateValue();
+
+
+    console.log(state.bag)
     return (
         <div className='subtotal'>
             <CurrencyFormat
@@ -10,8 +17,8 @@ function Subtotal() {
                     <>
                         <p>
                             {/* Part of the homework */}
-                            Subtotal (0 items):
-                            <strong>0</strong>
+                            Subtotal ({state.bag.length} items):
+                                <strong> {value}</strong>
                         </p>
                         <small className='subtotal__gift'>
                             <input type='checkbox' />
@@ -20,7 +27,7 @@ function Subtotal() {
                     </>
                 )}
                 decimalScale={2} //allows 2 digits of decimal number
-                value={0} // Part of homework
+                value={getBagTotal(state.bag)} // Part of homework
                 displayType={'text'}
                 thousandSeparator={true}
                 prefix={'$'}
@@ -28,6 +35,7 @@ function Subtotal() {
 
             <button>Proceed to Checkout</button>
         </div>
+        
     )
 }
 
