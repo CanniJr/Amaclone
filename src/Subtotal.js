@@ -8,8 +8,6 @@ function Subtotal() {
 
     const [state, dispatch] = useStateValue();
 
-
-    console.log(state.bag)
     return (
         <div className='subtotal'>
             <CurrencyFormat

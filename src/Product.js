@@ -37,7 +37,7 @@ function Product(props) {
             </div>
 
                 <img
-                    src={props.img}
+                    src={props.image}
                     alt='product'
                 />
 
