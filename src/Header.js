@@ -2,10 +2,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './css/Header.css'
+import { auth } from './Firebase';
 import { useStateValue } from './StateProvider';
 
 function Header() {
     const [state, dispatch] = useStateValue();
+
+    const signInHandler = () => {
+        if (state.user) {
+            auth.signOut();
+        }
+    }
 
     return (
         <div className='header'>
@@ -28,10 +35,10 @@ function Header() {
             </div>
 
             <div className='header__nav'>
-                <Link to='/login'>
-                <div className='header__option'>
-                    <span className='header__optionLineOne'>Hello Guest</span>
-                    <span className='header__optionLineTwo'>Sign in</span>
+                <Link to={!state.user && '/login'}>
+                <div onClick={signInHandler} className='header__option'>
+                    <span className='header__optionLineOne'>{state.user ? `Hello ${state.user.email}` : 'Hello Guest'}</span>
+                    <span className='header__optionLineTwo'>{state.user ? 'Sign Out' : 'Sign In'}</span>
                 </div>
                 </Link>
 

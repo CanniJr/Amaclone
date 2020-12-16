@@ -1,5 +1,6 @@
 export const initialState = {
     bag: [],
+    user: null
 };
 
 // Selector
@@ -9,7 +10,6 @@ export const getBagTotal = (bag) =>
 
 
 const reducer = (state, action) => {
-    console.log(action)
     switch (action.type) {
         case 'ADD_TO_BAG':
             return {
@@ -33,6 +33,12 @@ const reducer = (state, action) => {
 
             return {
                 ...state, bag: newBag
+            }
+
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
             }
         
         default:

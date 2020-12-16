@@ -16,6 +16,7 @@ function Checkout() {
                 />
 
                 <div>
+                    <h3>Hello, {(state.user)?.email}!</h3>
                     <h2 className='checkout__title'>
                         Your Shopping Bag</h2>
                     {/* {console.log(state.bag)} */}
