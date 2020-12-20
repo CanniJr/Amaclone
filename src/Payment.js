@@ -36,6 +36,8 @@ function Payment() {
         getClientSecret();
     }, [state.bag])
 
+    console.log('THE SECRET IS >>>>', clientSecret)
+
     const submitHandler = async (e) => {
         // stripe codes
         e.preventDefault();

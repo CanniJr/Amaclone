@@ -14,9 +14,23 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 // - API Routes
-app.get('/', (request, response) => response.status(200).send('Hello World'))
+app.get('/', (request, response) => response.status(200).send('HAHAHAHAH'))
 
-app.post('/payment/create')
+app.post('/payments/create', async (request, response) => {
+    const total = request.query.total;
+
+    console.log('Payment request received BABY!!! >>>> ', total)
+
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: total, //subunit of the currency
+        currency: 'usd'
+    })
+
+    // OK - Created something
+    response.status(201).send({
+        clientSecret: paymentIntent.client_secret,
+    })
+})
 
 // - Listen Command
 exports.api = functions.https.onRequest(app)
