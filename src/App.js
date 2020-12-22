@@ -10,6 +10,7 @@ import { auth } from './Firebase'
 import { useStateValue } from './StateProvider';
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
+import Orders from './Orders';
 
 // Public API key
 const promise = loadStripe( 
@@ -47,6 +48,10 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
+          <Route path='/orders'>
+            <Header />
+            <Orders />
+          </Route>
           <Route path='/login'>
             <Login />
           </Route>

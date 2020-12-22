@@ -1,5 +1,5 @@
 import React from 'react'
-import './CheckoutProduct.css'
+import './css/CheckoutProduct.css'
 import { useStateValue } from './StateProvider'
 
 

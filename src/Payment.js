@@ -7,6 +7,7 @@ import CheckoutProduct from './CheckoutProduct'
 import './css/Payment.css'
 import { getBagTotal } from './Reducer'
 import { useStateValue } from './StateProvider'
+import { db } from './Firebase'
 
 
 function Payment() {
@@ -37,6 +38,7 @@ function Payment() {
     }, [state.bag])
 
     console.log('THE SECRET IS >>>>', clientSecret)
+    console.log( '😎' , state.user)
 
     const submitHandler = async (e) => {
         // stripe codes
@@ -49,12 +51,28 @@ function Payment() {
             }
         })
             .then(({ paymentIntent }) => {
-                    // paymentIntent = Payment confirmation (Code from Stripe)
+                // paymentIntent = Payment confirmation (Code from Stripe)
 
+                db    // NoSQL database
+                    .collection('users')
+                    .doc(state.user?.id)
+                    .collection('orders') 
+                    .doc(paymentIntent.id)
+                    .set({
+                        bag: state.bag,
+                        amount: paymentIntent.amount,
+                        created: paymentIntent.created
+                    })
+
+                
                 setSucceeded(true);
                 setError(null);
                 setProcessing(false);
 
+                dispatch({
+                    type: 'EMPTY_BASKET'
+                })
+                            
                 history.replace('/orders')
         })
 
