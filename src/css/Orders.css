@@ -1,0 +1,7 @@
+.orders {
+	padding: 20px 80px; /* 20px top-bottom , 80px left-right */
+}
+
+.orders > h1 {
+	margin: 3px 0;
+}

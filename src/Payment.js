@@ -55,7 +55,7 @@ function Payment() {
 
                 db    // NoSQL database
                     .collection('users')
-                    .doc(state.user?.id)
+                    .doc(state.user?.uid)
                     .collection('orders') 
                     .doc(paymentIntent.id)
                     .set({
