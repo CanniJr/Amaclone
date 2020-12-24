@@ -1,5 +1,5 @@
 import React from 'react'
-import './CheckoutProduct.css'
+import './css/CheckoutProduct.css'
 import { useStateValue } from './StateProvider'
 
 
@@ -33,7 +33,9 @@ function CheckoutProduct(props) {
                     ))
                 }
                 </div>
-                <button onClick={removeFromBasket}>Remove from Bag</button>
+                {!props.hideButton && (
+                    <button onClick={removeFromBasket}>Remove from Bag</button>
+                )}
             </div>
         </div>
     )
