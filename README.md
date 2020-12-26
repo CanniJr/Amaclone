@@ -6,6 +6,7 @@ Libraries Used:
 
 - React Router Dom
 - React Currency Format
+- Moment (Date Formatting)
 
 # Getting Started with Create React App
 
